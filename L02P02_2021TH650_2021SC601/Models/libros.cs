@@ -18,7 +18,7 @@ namespace L02P02_2021TH650_2021SC601.Models
         [Display(Name = "creacion")]
         public int id_categoria { get; set; }
         [Display(Name = "creacion")]
-        public double precio { get; set; }
+        public decimal precio { get; set; }
         [Display(Name = "creacion")]
         public string? estado { get; set; }
     }

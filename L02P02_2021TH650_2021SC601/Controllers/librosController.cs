@@ -21,7 +21,7 @@ namespace L02P02_2021TH650_2021SC601.Controllers
 
             var listacateg = (from m in _libreriaDbContext.categorias
                               select m).ToList();
-            ViewData["listcatg"] = new SelectList(listaAutor, "id", "categoria");
+            ViewData["listcatg"] = new SelectList(listacateg, "id", "categoria");
 
             var listadolibros = (from l in _libreriaDbContext.libros
                                  join a in _libreriaDbContext.autores on l.id_autor equals a.id
