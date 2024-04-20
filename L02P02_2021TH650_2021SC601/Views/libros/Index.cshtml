@@ -17,24 +17,28 @@
 
     <div class="form-group row mb-4">
         <div class="col-sm-2">
-            <label>Precio:</label>
+            @Html.Label("lbautor", "Precio:", new { @class = "control-label" })
         </div>
         <div class="col-sm-2">
             @Html.TextBox("Precio", "", new { @class = "form-control" })
         </div>
         <div class="col-sm-2">
-            @Html.Label("lbautor", "Autor")
+            @Html.Label("lbautor", "Autor:", new { @class = "control-label" })
         </div>
         <div class="col-sm-4">
-            @Html.DropDownList("id", ViewData["listautores"] as SelectList, "Seleccione una autor", new { @class = "form-control" })
-
-        <div class="col-sm-2">
-            @Html.Label("lblcatg", "Categoria o genero")
-        </div>
-        <div class="col-sm-4">
-            @Html.DropDownList("id", ViewData["listcatg"] as SelectList, "Seleccione una categoria", new { @class = "form-control" })
+            @Html.DropDownList("id", ViewData["listautores"] as SelectList, "Seleccione un autor", new { @class = "form-control" })
         </div>
     </div>
+    <div class="form-group row mb-4">
+        <div class="col-sm-2">
+            @Html.Label("lblcatg", "Categoría o género:", new { @class = "control-label" })
+        </div>
+        <div class="col-sm-4">
+            @Html.DropDownList("id", ViewData["listcatg"] as SelectList, "Seleccione una categoría", new { @class = "form-control" })
+        </div>
+    </div>
+
+    <br/>
     <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
 <table class="table table-striped">
