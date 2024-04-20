@@ -3,7 +3,7 @@
 *@
 @{
 }
-<form>
+<form asp-action="Crearlibro">
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Nombre del Libro:</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -17,23 +17,46 @@
 
     <div class="form-group row mb-4">
         <div class="col-sm-2">
-            <label>Nombre:</label>
+            <label>Precio:</label>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-2">
             @Html.TextBox("Precio", "", new { @class = "form-control" })
         </div>
         <div class="col-sm-2">
             @Html.Label("lbautor", "Autor")
         </div>
         <div class="col-sm-4">
-            @Html.TextArea("descripcion", "", new { @class = "form-control", @placeHolder = "Ingrese la descripción" })
-        </div>
+            @Html.DropDownList("id", ViewData["listautores"] as SelectList, "Seleccione una autor", new { @class = "form-control" })
+
         <div class="col-sm-2">
-            @Html.Label("lblDescripcion", "Descripción")
+            @Html.Label("lblcatg", "Categoria o genero")
         </div>
         <div class="col-sm-4">
-            @Html.DropDownList("marca_id", ViewData["listadoDeMarcas"] as SelectList, "Seleccione una marca", new { @class = "form-control" })
+            @Html.DropDownList("id", ViewData["listcatg"] as SelectList, "Seleccione una categoria", new { @class = "form-control" })
         </div>
     </div>
     <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripccion</th>
+            <th>Precio</th>
+            <th>Autor</th>
+            <th>Categoria</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var libro in (IEnumerable<dynamic>)ViewData["listlibros"])
+        {
+            <tr>
+                <td>@libro.nombre</td>
+                <td>@libro.descripcion</td>
+                <td>@libro.precio</td>
+                <td>@libro.autor</td>
+                <td>@libro.categoria</td>
+            </tr>
+        }
+    </tbody>
+</table>
